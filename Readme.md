@@ -8,3 +8,17 @@ implements the full specification. This converter makes use of what is currently
 ## Usage
 
 `python3 ssatovtt.py subtitles.ass subtitles.vtt`
+
+I'd also recommend styling the subs by throwing something like this in your CSS
+
+```
+video::cue {
+	color: white;
+	background-color: transparent;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+```
