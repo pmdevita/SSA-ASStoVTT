@@ -178,7 +178,7 @@ def convert(in_file, out_file):
                 current_line['MarginL'] = round(local_style['Position'][0] - (info['PlayResX'] / 2) + 1)
                 # The 1 is because 0 defaults to the style's margins
                 current_line['MarginR'] = 1
-                current_line['MarginV'] = round(local_style['Position'][1])
+                current_line['MarginV'] = info['PlayResY'] - round(local_style['Position'][1])
 
             full_text += part_text
         if extra_lines > 1:
@@ -233,7 +233,7 @@ def convert(in_file, out_file):
             if position['bottom']:
                 # Percentage is not supported meaning we have to use line numbers. I have no idea
                 # how many lines are in a video but 16 seems to work kinda
-                p_flag += " line:-{}".format(round(position['bottom'] / info['PlayResY'] * 16, 4))
+                p_flag += " line:-{}".format(round(position['bottom'] / info['PlayResY'] * 20, 4))
             # There isn't a straight analog for horizontal positioning so I'm taking the difference between the left and
             # right margins and using that.
             if position['left'] != position['right']:
